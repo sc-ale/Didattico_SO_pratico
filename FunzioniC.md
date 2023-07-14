@@ -2,9 +2,11 @@
 
 ## STRINGHE
 - memset  -> riempe una stringa con una costante (utile per inizializzare il buf che si usa in snprintf)
-- sprintf, snprintf -> formatta una stringa come vuoi tu (es. sprintf(buf, "%s/%s, path, nameFile) )
+- sprintf, snprintf  -> formatta una stringa come vuoi tu (es. sprintf(buf, "%s/%s, path, nameFile) )
 - strcpy, strdup    -> copia una stringa in un'altra (MA strdup alloca memoria)
 - strtok  -> estrae le diverse parole, separate da delim, in una stringa 
+- strlen  -> calcola la lunghezza di una stringa, escludendo il null byte ('\0')
+- getopt  -> parsing delle opzioni passate da linea di comando
 
 
 ## CONVERSIONI STRINGHE-NUMERI
@@ -16,10 +18,13 @@
 - rename -> permette di cambiare il nome o la posizione del file
 - remove -> elimina un file o una directory
 - fputc  -> inserisce un carattere nel file puntato 
+- dup, dup2  -> duplica un file descriptor, per dup 2 il file descriptor
+       newfd e' aggiustato in modo che ora si riferisca allo stesso file descriptor di oldfd.
 
 
-## ESERCUZIONE FILE
+## ESESECUZIONE FILE
 - execv -> esegue un file o un comando dato (i comandi come ls,rm,... si trovano in /usr/bin/)
+- execvp -> 
 
 
 ## INFORMAZIONI E LETTURA FILE
@@ -30,6 +35,8 @@
 - fseek -> imposta l'indicatore di posizione di un file (la posizione può essere all'inizio, metà o fine del file)
 - ftell ->  ritorna il valore corrente dell'indicatore di posizione del file associato a stream (può essere utile per vedere la dimensione di un file)
             (es. FILE* f = fopen(pathfile, "r"); fseek(f, 0, SEEK_END); long size = ftell(f); )
+- fgets  -> legge  il file, la lettura si ferma alla fine del file (EOF) o ad una nuova linea ("\n")
+- getline  -> legge l'intera dallo stream, salvandola su buffer
 
 
 ## PATH
@@ -52,3 +59,14 @@
 - timerfd_create, timerfd_settime -> creano e settano un timer che invia segnali attraverso il file descriptor (a differenza di timer_create, timer_settime)
     - es. si crea un timer e lo si setta, si fa la read sul fd del timer in modo che il processo si sblocchi quando cambia qualcosa nel fd del timer, cambia ogni tot tempo (come l'abbiamo settato)
 - clock -> ritorna il CPU time usato dal processo fino a quel momento
+
+## SINCRONIZZAZIONE TRA PROCESSI
+- wait  -> aspetta che il primo figlio muoia, lo stato e' memorizzato nel parametro passato alla funzione
+
+## GESTIONE PIPE
+- pipe  -> crea una pipe, il file descriptor passato come parametro e' un array dove l'elemento 0 e' read mentre l'elemento 1 e' WRITE 
+- mkfifo  -> crea una named pipe, il file speciale FIFO e' salvato nel filesystem e ogni processo puo' accedervi
+
+## MACRO E LIBRERIE
+stdin, stdout, stderr  -> (input, outour, errore) standard I/O streams, sono del tipo FILE* 
+STDOUT_FILENO, STDIN_FILENO
