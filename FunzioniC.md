@@ -6,7 +6,7 @@
 - strcpy, strdup    -> copia una stringa in un'altra (MA strdup alloca memoria)
 - strtok  -> estrae le diverse parole, separate da delim, in una stringa 
 - strlen  -> calcola la lunghezza di una stringa, escludendo il null byte ('\0')
-- getopt  -> parsing delle opzioni passate da linea di comando
+- getopt  -> parsing delle opzioni passate da linea di comando (ritona l'opzione inserita nel terminale, ed anche il suo parametro)
 
 
 ## CONVERSIONI STRINGHE-NUMERI
@@ -68,8 +68,8 @@
 - wait  -> aspetta che il primo figlio muoia, lo stato e' memorizzato nel parametro passato alla funzione
 
 ## GESTIONE PIPE
-- pipe  -> crea una pipe, il file descriptor passato come parametro e' un array dove l'elemento 0 e' read mentre l'elemento 1 e' WRITE 
-- mkfifo  -> crea una named pipe, il file speciale FIFO e' salvato nel filesystem e ogni processo puo' accedervi
+- pipe  -> crea una pipe (unidirezionale), il file descriptor passato come parametro e' un array dove l'elemento 0 e' read mentre l'elemento 1 e' WRITE 
+- mkfifo  -> crea una named pipe (bidirezionale), il file speciale FIFO e' salvato nel filesystem e ogni processo puo' accedervi
 
 ## MACRO E LIBRERIE
 stdin, stdout, stderr  -> (input, outour, errore) standard I/O streams, sono del tipo FILE* 
