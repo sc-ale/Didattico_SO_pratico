@@ -12,7 +12,7 @@
 ## CONVERSIONI STRINGHE-NUMERI
 - strtod -> converte un carattere ASCII in un float 
 - atoi   -> converte una stringa in un intero
-
+- atof   -> converte una stringa in un float
 
 ## MODIFICHE FILE
 - rename -> permette di cambiare il nome o la posizione del file
@@ -44,12 +44,16 @@
 - realpath -> ritorna il path assoluto di un file (se l'input è un symbolic link allora torna il path assoluto del file a cui il soft link si riferisce)
 - symlink  -> crea un link simbolico 
 - link     -> crea un hard link
-
+- readlink -> restituisce il nome del file puntato dal link simbolico preso in input (non risolve tutta la catena)
+- unlink   -> elimina il link dato in input ed eventualmente il file puntato
 
 ## DIR E DIR ENTRY
 - opendir -> apre una directory (ritorna il puntatore al flusso della directory)
 - readdir -> ritorna un puntatore alle entry della directory (es. while( (entry = readdir(dir))!=NULL ) {...}  )
     - la struttura dirent ha diversi attributi molto utili (principalemente d_type)
+- getcwd  -> ritorna la directory corrente 
+- chdir,fchdir -> servono per cambiare la directory corrente, la seconda prende un file descriptor in input 
+
 
 ## CREARE E INFO SU PROCESSI
 - fork -> crea un nuovo processo, che diventa figlio del chiamante (nel figlio la fork ritorna 0 mentre nel padre ritorna il pid del figlio)
