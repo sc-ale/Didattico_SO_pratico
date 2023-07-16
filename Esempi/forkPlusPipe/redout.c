@@ -1,3 +1,11 @@
+/*
+Il programma apre un file in modalità scrittura e lo utilizza come output per la stringa "hola". 
+
+Durante l'esecuzione del programma, si possono osservare le stampe sullo stream di errori, mentre l'output effettivo della stringa "hola" verrà scritto nel file specificato.
+
+*/
+
+
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>

@@ -1,3 +1,4 @@
+/*semplice sincronizzazione tra padre e figlio, il padre aspetta che il figlio termini prima di continuare l'esecuzione*/
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>

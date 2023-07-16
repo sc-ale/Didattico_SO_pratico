@@ -1,3 +1,7 @@
+
+/* variable list, liste che possono avere un numero variabile di argomenti
+va_start(3), va_arg(3), va_copy(3), e va_end(3) vengono usate per gestire le liste
+*/
 #include <stdio.h>
 #include <stdarg.h>
 

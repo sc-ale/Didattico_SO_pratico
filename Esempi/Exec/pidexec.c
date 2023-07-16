@@ -1,3 +1,4 @@
+/*esempio di esecuzione di execvp degli arogomenti dell'eseguibile*/
 #include <stdio.h>
 #include <unistd.h>
 

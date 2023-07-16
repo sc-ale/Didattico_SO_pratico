@@ -1,3 +1,4 @@
+/*semplici esempi di union*/
 #include <stdio.h>
 struct coso {
 	enum {persona, automobile} tipo;

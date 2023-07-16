@@ -1,4 +1,4 @@
-
+/*semplici esempi di strutture*/
 struct coord {
 	int x;
 	int y;
