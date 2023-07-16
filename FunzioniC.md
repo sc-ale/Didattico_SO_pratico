@@ -21,6 +21,13 @@
 - dup, dup2  -> duplica un file descriptor, per dup 2 il file descriptor
        newfd e' aggiustato in modo che ora si riferisca allo stesso file descriptor di oldfd.
 
+## INOTIFY -  API CONTROLLO DI EVENTI SU UN FILE/DIRECTORY
+- inotify_init -> inizializza un'istanza inotify che ritorna il file descriptor di quella istanza
+- inotify_add_watch-> serve per aggiungere un file da tenere sotto controllo, con eventuali flag per dire quali eventi ci interessano
+- read -> eseguita su un file descriptor di un'istanza inotify blocca il programma fino a che non avviene un evento, restituisce una struttura inotify_event
+- inotify_event -> struttura dati per ottenere informazioni sull'evento ottenuto, es. nel campo .name c'è il nome del file creato se si stava aspettando la creazione di un file
+- close -> chiude l'istanza inotify e vengono liberati anche tutti i file aggiunti con inotify_add_watch 
+- #define BUFFL sizeof(struct inotify_event) + NAME_MAX + 1 -> define che come dice il manuale è la dimensione adatta del buffer per contenere almeno un evento
 
 ## ESESECUZIONE FILE
 - execv -> esegue un file o un comando dato (i comandi come ls,rm,... si trovano in /usr/bin/)
