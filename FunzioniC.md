@@ -39,7 +39,7 @@
 - getline  -> legge l'intera dallo stream, salvandola su buffer
 
 
-## PATH
+## PATH E SOFT LINK
 - basename, dirname -> ritornano solo il nome del file o il path precedente
 - realpath -> ritorna il path assoluto di un file (se l'input è un symbolic link allora torna il path assoluto del file a cui il soft link si riferisce)
 - symlink  -> crea un link simbolico 
@@ -59,17 +59,21 @@
 - fork -> crea un nuovo processo, che diventa figlio del chiamante (nel figlio la fork ritorna 0 mentre nel padre ritorna il pid del figlio)
 - pid, ppid -> ritornano il pid del processo chiamante (o del padre con ppid)
 
+
 ## TEMPO 
 - timerfd_create, timerfd_settime -> creano e settano un timer che invia segnali attraverso il file descriptor (a differenza di timer_create, timer_settime)
     - es. si crea un timer e lo si setta, si fa la read sul fd del timer in modo che il processo si sblocchi quando cambia qualcosa nel fd del timer, cambia ogni tot tempo (come l'abbiamo settato)
 - clock -> ritorna il CPU time usato dal processo fino a quel momento
 
+
 ## SINCRONIZZAZIONE TRA PROCESSI
 - wait  -> aspetta che il primo figlio muoia, lo stato e' memorizzato nel parametro passato alla funzione
+
 
 ## GESTIONE PIPE
 - pipe  -> crea una pipe (unidirezionale), il file descriptor passato come parametro e' un array dove l'elemento 0 e' read mentre l'elemento 1 e' WRITE 
 - mkfifo  -> crea una named pipe (bidirezionale), il file speciale FIFO e' salvato nel filesystem e ogni processo puo' accedervi
+
 
 ## MACRO E LIBRERIE
 stdin, stdout, stderr  -> (input, outour, errore) standard I/O streams, sono del tipo FILE* 
