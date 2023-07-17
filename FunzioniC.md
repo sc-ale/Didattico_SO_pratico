@@ -16,17 +16,10 @@
 - __atof__   -> converte una stringa in un float
 
 ## MODIFICHE FILE
-<<<<<<< HEAD
-- rename -> permette di cambiare il nome o la posizione del file
-- remove -> elimina un file o una directory
-- fputc  -> inserisce un carattere nel file puntato 
-- dup, dup2  -> duplica un file descriptor, per dup2 il file descriptor
-=======
 - __rename__ -> permette di cambiare il nome o la posizione del file
 - __remove__ -> elimina un file o una directory
 - __fputc__  -> inserisce un carattere nel file puntato 
-- __dup, dup2__  -> duplica un file descriptor, per dup 2 il file descriptor
->>>>>>> 5c40f173e99975df35306429790751d218b6b0a8
+- __dup__, __dup2__  -> duplica un file descriptor, per dup 2 il file descriptor
        newfd e' aggiustato in modo che ora si riferisca allo stesso file descriptor di oldfd.
 
 ## INOTIFY -  API CONTROLLO DI EVENTI SU UN FILE/DIRECTORY
@@ -38,15 +31,9 @@
 - #define BUFFL sizeof(struct inotify_event) + NAME_MAX + 1 -> define che come dice il manuale è la dimensione adatta del buffer per contenere almeno un evento
 
 ## ESESECUZIONE FILE
-<<<<<<< HEAD
-- execv -> esegue un file o un comando dato (i comandi come ls,rm,... si trovano in /usr/bin/)
-- execvp -> 
-- system -> esegue un comando shell
-=======
 - __exec__
     - __execv__ -> esegue un file o un comando dato (i comandi come ls,rm,... si trovano in /usr/bin/)
     - __execvp__ -> esegue un file o un comando dato, simulando il comportamento di una shell 
->>>>>>> 5c40f173e99975df35306429790751d218b6b0a8
 
 
 ## INFORMAZIONI E LETTURA FILE
@@ -57,13 +44,8 @@
 - __fseek__ -> imposta l'indicatore di posizione di un file (la posizione può essere all'inizio, metà o fine del file)
 - __ftell__ ->  ritorna il valore corrente dell'indicatore di posizione del file associato a stream (può essere utile per vedere la dimensione di un file)
             (es. FILE* f = fopen(pathfile, "r"); fseek(f, 0, SEEK_END); long size = ftell(f); )
-<<<<<<< HEAD
-- fgets    -> legge  il file, la lettura si ferma alla fine del file (EOF) o ad una nuova linea ("\n")
-- getline  -> legge l'intera linea dallo stream, salvandola sul buffer
-=======
 - __fgets__  -> legge  il file, la lettura si ferma alla fine del file (EOF) o ad una nuova linea ("\n")
 - __getline__  -> legge l'intera dallo stream, salvandola su buffer
->>>>>>> 5c40f173e99975df35306429790751d218b6b0a8
 
 
 ## PATH E SOFT LINK
