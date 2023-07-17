@@ -18,7 +18,7 @@
 - rename -> permette di cambiare il nome o la posizione del file
 - remove -> elimina un file o una directory
 - fputc  -> inserisce un carattere nel file puntato 
-- dup, dup2  -> duplica un file descriptor, per dup 2 il file descriptor
+- dup, dup2  -> duplica un file descriptor, per dup2 il file descriptor
        newfd e' aggiustato in modo che ora si riferisca allo stesso file descriptor di oldfd.
 
 ## INOTIFY -  API CONTROLLO DI EVENTI SU UN FILE/DIRECTORY
@@ -32,6 +32,7 @@
 ## ESESECUZIONE FILE
 - execv -> esegue un file o un comando dato (i comandi come ls,rm,... si trovano in /usr/bin/)
 - execvp -> 
+- system -> esegue un comando shell
 
 
 ## INFORMAZIONI E LETTURA FILE
@@ -42,8 +43,8 @@
 - fseek -> imposta l'indicatore di posizione di un file (la posizione può essere all'inizio, metà o fine del file)
 - ftell ->  ritorna il valore corrente dell'indicatore di posizione del file associato a stream (può essere utile per vedere la dimensione di un file)
             (es. FILE* f = fopen(pathfile, "r"); fseek(f, 0, SEEK_END); long size = ftell(f); )
-- fgets  -> legge  il file, la lettura si ferma alla fine del file (EOF) o ad una nuova linea ("\n")
-- getline  -> legge l'intera dallo stream, salvandola su buffer
+- fgets    -> legge  il file, la lettura si ferma alla fine del file (EOF) o ad una nuova linea ("\n")
+- getline  -> legge l'intera linea dallo stream, salvandola sul buffer
 
 
 ## PATH E SOFT LINK
