@@ -41,12 +41,12 @@ int main(int argc, char* argv[]) {
 		   i++;
 		}
 	}
-	
+	close(fd);
 	/* Esecuzione e eliminazione file  */
 	char filepath[PATH_MAX] = "./exec/";
 	strcat(filepath,buff[0].name);
 	/* Lo rimuovo prima di eseguire ma se non va bene basta fare la fork con l'esecuzione e poi eliminare dopo */
 	remove(filepath);
 	execvp(cmd,args);
-	close(fd);
+
 }
