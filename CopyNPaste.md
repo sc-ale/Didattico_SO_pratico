@@ -23,6 +23,32 @@ while((entry = readdir(dr)) != NULL) {
     }
 }
 ```
+## ITERARE SU UN SOTTOALBERO GENERATO DA UNA DIRECTORY
+- https://stackoverflow.com/questions/1271064/how-do-i-loop-through-all-files-in-a-folder-using-c
+```C
+int read_directories(const char* path) {
+    DIR* directory = NULL;
+    if ((directory = opendir(path)) == NULL) {
+        fprintf(stderr, "Can't open %s\n", path);
+        return EXIT_FAILURE;
+    }
+
+    struct dirent* entry = NULL;
+    while ((entry = readdir(directory)) != NULL) {
+        char full_name[256] = { 0 };
+        snprintf(full_name, 100, "%s/%s", path, entry->d_name);
+
+        if (entry->d_type == DT_DIR) {
+            printf("'%s' is a directory\n", full_name);
+            // Recurse unless the directory is the current or parent directory.
+            if (strcmp(entry->d_name, ".") != 0 && strcmp(entry->d_name, "..") != 0) {
+                return read_directories(full_name);
+            }
+        } else {
+            printf("'%s' is a file\n", full_name);
+        }
+    }
+```
 ## INCLUDE UTILI
 ```C
 #include <stdio.h> //printf, sprintf, getline 
