@@ -44,5 +44,5 @@
 
 
 ## LISTE
-- __ist.append__ -> aggiunge un elemento in coda alla lista
+- __list.append__ -> aggiunge un elemento in coda alla lista
 - __list.sort__   -> ordina la lista (e' possibile ordinare la lista secondo una nostra funzione con key=myFunc, inoltre con reverse=False si puo' invertire l'ordine)
